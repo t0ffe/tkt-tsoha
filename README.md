@@ -9,9 +9,9 @@ Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saata
 - Käyttäjä näkee sovelluksen etusivulla listan kaikista saatavilla olevista merkeistä ja niiden määrän.
 - Käyttäjä voi luoda uusia haalarimerkkejä.
 - Käyttäjä voi lisätä jo olemassa olevan haalarimerkin määrää.
-- Käyttäjä voi muokata luomansa merkin hintaa, nimeä, suunnitelijaa, tilauspaikkaa, (ehkä kuvaa). Käyttäjä voi myös poistaa merkin.
+- Käyttäjä voi muokata luomansa merkin hintaa, nimeä, suunnittelijaa, tilauspaikkaa, (ehkä kuvaa). Käyttäjä voi myös poistaa merkin.
 - Käyttäjä voi etsiä merkkejä nimen perusteella.
-- Käyttäjä voi rajata merkkejä eri suodattimilla kuten hinta, tilauspaikka, suunnitelija.
+- Käyttäjä voi rajata merkkejä eri suodattimilla kuten hinta, tilauspaikka, suunnittelija.
 - Ylläpitäjä voi muokata ja poistaa tietokantoja / käyttäjiä.
 - Ylläpitäjä voi luoda salaisen tietokannan ja määrittää, keillä käyttäjillä on pääsy alueelle.
 - Merkkien myynti historia. (Mahdollisuus poistaa merkkejä ja "myydä" merkkejä)
