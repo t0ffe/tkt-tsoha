@@ -1,5 +1,5 @@
 
-# Haalarimerkki-inventaario sovellus
+# Haalarimerkki-inventaariosovellus
 
 Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saatavuudesta. Sovellus on tarkoitettu merkkien myyjän käytettäväksi. Jokainen käyttäjä on peruskäyttäjä tai ylläpitäjä.
 
@@ -14,7 +14,7 @@ Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saata
 - Käyttäjä voi rajata merkkejä eri suodattimilla kuten hinta, tilauspaikka, suunnittelija.
 - Ylläpitäjä voi muokata ja poistaa tietokantoja / käyttäjiä.
 - Ylläpitäjä voi luoda salaisen tietokannan ja määrittää, keillä käyttäjillä on pääsy alueelle.
-- Merkkien myynti historia. (Mahdollisuus poistaa merkkejä ja "myydä" merkkejä)
+- Merkkien myyntihistoria. (Mahdollisuus poistaa merkkejä ja "myydä" merkkejä)
 
-### Jatko kehitys?
-- Hinta historia
+### Jatkokehitys?
+- Hintahistoria
