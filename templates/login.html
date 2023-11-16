@@ -1,0 +1,11 @@
+{% include 'inc/header.html' %}
+
+
+{% if session.user_id %}
+Olet kirjautunut sisään nimellä <b>{{ session.user_name }}</b>. <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+Et ole kirjautunut sisään. <a href="/login">Kirjaudu sisään</a>
+{% endif %}
+
+
+{% include 'inc/footer.html' %}
