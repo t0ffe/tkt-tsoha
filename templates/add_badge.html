@@ -1,0 +1,27 @@
+{% include 'inc/header.html' %}
+
+<body>
+    <h1>Add Badge</h1>
+    <form method="post">
+        <label for="collection_id">Collection ID:</label>
+        <input type="text" name="collection_id" required>
+        <br>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" required>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" step=".01" name="price" required>
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        <br>
+        <label for="designer">Designer:</label>
+        <input type="text" name="designer">
+        <br>
+        <label for="supplier">Supplier:</label>
+        <input type="text" name="supplier">
+        <br>
+        <input type="submit" value="Add Badge">
+    </form>
+
+{% include 'inc/footer.html' %}

@@ -18,3 +18,6 @@ Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saata
 
 ### Jatkokehitys?
 - Hintahistoria
+
+
+Run "psql -f schema.sql" to create the database tables
