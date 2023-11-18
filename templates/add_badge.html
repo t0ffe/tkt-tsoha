@@ -1,5 +1,7 @@
 {% include 'inc/header.html' %}
 
+{% if session.username %}
+
 <body>
     <h1>Add Badge</h1>
     <form method="post">
@@ -24,4 +26,8 @@
         <input type="submit" value="Add Badge">
     </form>
 
+
+{% else %}
+<h1>ET OLE KIRJAUTUNUT SISÄÄN</h1>
+{% endif %}
 {% include 'inc/footer.html' %}

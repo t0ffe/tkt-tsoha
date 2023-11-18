@@ -1,11 +1,24 @@
 {% include 'inc/header.html' %}
 
 
-{% if session.user_id %}
-Olet kirjautunut sisään nimellä <b>{{ session.user_name }}</b>. <a href="/logout">Kirjaudu ulos</a>
-{% else %}
-Et ole kirjautunut sisään. <a href="/login">Kirjaudu sisään</a>
-{% endif %}
 
+{% if session.username %}
+Olet kirjautunut sisään nimellä <b>{{ session.username }}</b> 
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+
+<h2>Kirjaudu sisään</h2>
+
+<form action="/login" method="post">
+Tunnus: <br><input type="text" name="username">
+<p>
+Salasana: <br><input type="password" name="password">
+<p>
+<input type="submit" value="Kirjaudu">
+</form>
+<a href="/register">Luo tunnus</a>
+<p>
+<a href="/">Palaa</a>
+{% endif %}
 
 {% include 'inc/footer.html' %}

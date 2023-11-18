@@ -1,5 +1,17 @@
 {% include 'inc/header.html' %}
 
-<a>LANDING PAGE</a>
 
+{% if session.username %}
+
+Merkkien määrä: {{ count }}
+
+<hr>
+{% for badge in badgess %}
+{{ badge.nimi }}
+<hr>
+{% endfor %}
+
+{% else %}
+<h1>ET OLE KIRJAUTUNUT SISÄÄN</h1>
+{% endif %}
 {% include 'inc/footer.html' %}

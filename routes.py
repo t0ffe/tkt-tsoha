@@ -1,7 +1,6 @@
 from app import app
 from flask import redirect, render_template, request, jsonify
 import badges
-import collections
 import users
 
 @app.route("/")
@@ -12,9 +11,34 @@ def index():
 def error(e):
     return render_template("error.html", error=e)
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    return render_template("login.html")
+    if request.method == "GET":
+        return render_template("login.html")
+    
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        if not users.login(username, password):
+            return render_template("error.html", message="Väärä tunnus tai salasana")
+        return redirect("/login")
+    
+@app.route("/logout")
+def logout():
+    users.logout()
+    return redirect("/")
+
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    if request.method == "GET":
+        return render_template("register.html")
+    
+    if request.method == "POST":
+        #TODO implement registering
+        return redirect("/login")
+
 
 
 @app.route('/add_badge', methods=['GET', 'POST'])
@@ -31,9 +55,10 @@ def addBadge():
         designer = request.form["designer"]
         supplier = request.form["supplier"]
         
-        result = badges.add_badge(collection_id, amount, price, name, designer, supplier)
+        badges.add_badge(collection_id, amount, price, name, designer, supplier)
 
-        return result
+        return redirect("/")
+
         
 def removeBadge():
     return
