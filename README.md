@@ -20,4 +20,20 @@ Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saata
 - Hintahistoria
 
 
-Run "psql -f schema.sql" to create the database tables
+## Sovelluksen asennus
+
+Asenna riippuvuudet komennolla:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Käyttö
+
+Aloita sovellus komennolla:
+
+```bash
+flask run
+```
+
+Sovellus on käytettävissä oletusarvoisesti selaimella osositteessa [http://127.0.0.1:5000](http://127.0.0.1:5000)
