@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS users (
     password TEXT,
     role INTEGER,
     created_at TIMESTAMP,
-    student_organization INTEGER
+    student_organization INTEGER,
+    FOREIGN KEY (student_organization) REFERENCES student_organization(id)
 
 );
 
@@ -21,5 +22,6 @@ CREATE TABLE IF NOT EXISTS badges (
     designer TEXT,
     supplier TEXT,
     created_at TIMESTAMP,
-    student_organization INTEGER
+    student_organization INTEGER,
+    FOREIGN KEY (student_organization) REFERENCES student_organization(id)
 );
