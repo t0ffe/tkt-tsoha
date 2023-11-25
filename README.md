@@ -22,6 +22,13 @@ Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saata
 
 ## Sovelluksen asennus
 
+Kloonaa tai lataa tämä repositio koneellesi esim komennolla:
+
+```bash
+git clone https://github.com/t0ffe/tkt-tsoha.git
+```
+
+
 Asenna riippuvuudet komennolla:
 
 ```bash
