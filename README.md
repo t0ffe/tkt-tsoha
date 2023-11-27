@@ -22,19 +22,38 @@ Sovelluksella käyttäjä voi pitää kirjaa haalarimerkkien myynnistä ja saata
 
 ## Sovelluksen asennus
 
-Kloonaa tai lataa tämä repositio koneellesi esim komennolla:
+Kloonaa tämä repositio koneellesi esim komennolla:
 
 ```bash
 git clone https://github.com/t0ffe/tkt-tsoha.git
 ```
 
+Mene juurihakemistoon ja aja:
 
-Asenna riippuvuudet komennolla:
+```bash
+echo -e "DATABASE_URL=postgresql+psycopg2://\nSECRET_KEY=$(python3 -c 'import secrets; print(secrets.token_hex(16))')" > .env
+```
+se luo `.env` tiedoston ja asetta sinne ympäristömuuttuja `DATABASE_URL` ja `SECRET_KEY`. 
+###### Jos tietokanta yhteys ei toimi saata joutua muokkaamaan `DATABASE_URL`:in arvoa. Voit kokeilla `postgresql:///user` 
+
+Aktivoi virtuaaliympäristö komennnoilla:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+ja asenna riippuvuudet komennolla:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+Määritä vielä tietokannan skeema komennolla:
+
+```bash
+psql -f schema.sql
+```
 ## Käyttö
 
 Aloita sovellus komennolla:
