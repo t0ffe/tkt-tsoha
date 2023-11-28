@@ -55,6 +55,10 @@ pip install -r requirements.txt
 ```bash
 psql -f schema.sql
 ```
+Schema:
+![schema.png](schema.png "Tietokanta jonka yllä oleva schema luo")
+
+
 ## Käyttö
 
 Aloita sovellus komennolla:
