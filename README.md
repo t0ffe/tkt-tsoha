@@ -34,7 +34,7 @@ Mene juurihakemistoon ja aja:
 echo -e "DATABASE_URL=postgresql+psycopg2://\nSECRET_KEY=$(python3 -c 'import secrets; print(secrets.token_hex(16))')" > .env
 ```
 se luo `.env` tiedoston ja asetta sinne ympäristömuuttuja `DATABASE_URL` ja `SECRET_KEY`. 
-###### Jos tietokanta yhteys ei toimi saata joutua muokkaamaan `DATABASE_URL`:in arvoa. Voit kokeilla `postgresql:///user` 
+###### Jos tietokanta yhteys ei toimi saatat joutua muokkaamaan `DATABASE_URL`:in arvoa. Voit kokeilla `postgresql:///user` 
 
 Aktivoi virtuaaliympäristö komennnoilla:
 
