@@ -37,6 +37,7 @@ def register():
     
     if request.method == "POST":
         #TODO implement registering
+        users.register(request.form["username"], request.form["password"])
         return redirect("/login")
 
 
