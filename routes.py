@@ -57,7 +57,7 @@ def addBadge():
         
         badges.add_badge(collection_id, amount, price, name, designer, supplier)
 
-        return redirect("/")
+        return redirect("add_badge")
 
         
 def removeBadge():
