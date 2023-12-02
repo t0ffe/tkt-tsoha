@@ -2,6 +2,7 @@ from app import app
 from flask import redirect, render_template, request, jsonify
 import badges
 import users
+import orgs
 
 @app.route("/")
 def index():
@@ -37,7 +38,7 @@ def register():
     
     if request.method == "POST":
         #TODO implement registering
-        users.register(request.form["username"], request.form["password"])
+        users.register(request.form["username"], request.form["password1"], request.form["role"])
         return redirect("/login")
 
 
@@ -48,17 +49,27 @@ def addBadge():
         return render_template('add_badge.html')
     
     if request.method == 'POST':
-        
-        collection_id = request.form["collection_id"]
+        student_organization = request.form["student_organization"]
         amount = request.form["amount"]
         price = request.form["price"]
         name = request.form["name"]
         designer = request.form["designer"]
         supplier = request.form["supplier"]
         
-        badges.add_badge(collection_id, amount, price, name, designer, supplier)
+        badges.add_badge(student_organization, amount, price, name, designer, supplier)
 
         return redirect("add_badge")
+
+@app.route('/add_student_org', methods=['GET', 'POST'])
+def addStudentOrg():
+    if request.method == 'GET':
+        return render_template('add_student_org.html')
+    
+    if request.method == 'POST':
+        student_organization = request.form["student_organization"]
+        orgs.add_org(student_organization)
+
+        return redirect("login")
 
         
 def removeBadge():

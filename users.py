@@ -9,7 +9,7 @@ from sqlalchemy.sql import text
 app.secret_key = getenv("SECRET_KEY")
 
 def login(name, password):
-    # TODO: check credentials
+    #TODO: check credentials
     sql = "SELECT id, password FROM users WHERE name=:name"
     result = db.session.execute(text(sql), {"name":name})
     user = result.fetchone()

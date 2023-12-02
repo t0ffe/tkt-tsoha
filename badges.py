@@ -2,11 +2,10 @@ from db import db
 from flask import jsonify
 from sqlalchemy.sql import text
 
-def add_badge(collection_id, amount, price, name, designer, supplier):
-    sql = "INSERT INTO badges (collection_id, amount, price, name, designer, supplier) VALUES (:collection_id, :amount, :price, :name, :designer, :supplier)"
-    
+def add_badge(student_organization, amount, price, name, designer_id, supplier_id):
+    sql = "INSERT INTO badges (student_organization, amount, price, name, designer_id, supplier_id) VALUES (:student_organization, :amount, :price, :name, :designer_id, :supplier_id)"
     try:
-        db.session.execute(text(sql))
+        db.session.execute(text(sql), {"student_organization":student_organization, "amount":amount, "price":price, "name":name, "designer_id":designer_id, "supplier_id":supplier_id})
         db.session.commit()
         return jsonify({'message': 'Badge added successfully'})
     except Exception as e:
