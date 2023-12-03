@@ -9,7 +9,6 @@ from sqlalchemy.sql import text
 app.secret_key = getenv("SECRET_KEY")
 
 def login(name, password):
-    #TODO: check credentials
     sql = "SELECT id, password FROM users WHERE name=:name"
     result = db.session.execute(text(sql), {"name":name})
     user = result.fetchone()
@@ -28,7 +27,6 @@ def logout():
     return redirect("/")
 
 def register(name, password, role):
-    #TODO implement registering (with hashing)
     hash_value = generate_password_hash(password)
 
     sql = "INSERT INTO users (name, password, role) VALUES (:name, :password, :role)"

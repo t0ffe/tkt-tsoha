@@ -22,7 +22,7 @@ def login():
         password = request.form["password"]
 
         if not users.login(username, password):
-            return render_template("error.html", message="Väärä tunnus tai salasana")
+            return redirect("/error/<Väärä tunnus tai salasana>")
         return redirect("/login")
     
 @app.route("/logout")
