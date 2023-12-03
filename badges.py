@@ -4,6 +4,7 @@ from sqlalchemy.sql import text
 
 def add_badge(student_organization, amount, price, name, designer_id, supplier_id):
     sql = "INSERT INTO badges (student_organization, amount, price, name, designer_id, supplier_id) VALUES (:student_organization, :amount, :price, :name, :designer_id, :supplier_id)"
+    
     try:
         db.session.execute(text(sql), {"student_organization":student_organization, "amount":amount, "price":price, "name":name, "designer_id":designer_id, "supplier_id":supplier_id})
         db.session.commit()
@@ -19,3 +20,14 @@ def removeBadge(badge_id, user_id):
     db.session.execute(sql, {"id":badge_id, "user_id":user_id})
     db.session.commit()
 
+def getAllSuppliers():
+    sql = "SELECT id, name FROM badge_supplier"
+    result = db.session.execute(text(sql))
+    suppliers = result.fetchall()
+    return suppliers
+
+def getAllDesigners():
+    sql = "SELECT id, name FROM badge_designers"
+    result = db.session.execute(text(sql))
+    designers = result.fetchall()
+    return designers

@@ -46,7 +46,10 @@ def register():
 @app.route('/add_badge', methods=['GET', 'POST'])
 def addBadge():
     if request.method == 'GET':
-        return render_template('add_badge.html')
+        orgs_ = orgs.getAllOrgs()
+        suppliers_ = badges.getAllSuppliers()
+        designers_ = badges.getAllDesigners()
+        return render_template('add_badge.html', student_organizations=orgs_, designers=designers_, suppliers=suppliers_)
     
     if request.method == 'POST':
         student_organization = request.form["student_organization"]
@@ -67,7 +70,7 @@ def addStudentOrg():
     
     if request.method == 'POST':
         student_organization = request.form["student_organization"]
-        orgs.add_org(student_organization)
+        orgs.addOrg(student_organization)
 
         return redirect("login")
 

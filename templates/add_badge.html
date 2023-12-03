@@ -5,8 +5,12 @@
 <body>
     <h1>Lisää merkki</h1>
     <form method="post">
-        <label for="collection_id">Ainejärjestö:</label>
-        <input type="text" name="student_organization" required>
+        <label for="student_organization">Ainejärjestö:</label>
+        <select name="student_organization">
+            {% for entry in student_organizations %}
+                <option value="{{ entry.id }}">{{ entry.name }}</option>
+            {% endfor %}
+        </select>       
         <br>
         <label for="amount">Määrä:</label>
         <input type="number" name="amount" required>
@@ -18,10 +22,18 @@
         <input type="text" name="name" required>
         <br>
         <label for="designer">Suunnittelija:</label>
-        <input type="text" name="designer">
+        <select name="designer">
+            {% for entry in designers %}
+                <option value="{{ entry.id }}">{{ entry.name }}</option>
+            {% endfor %}
+        </select>
         <br>
         <label for="supplier">Toimittaja:</label>
-        <input type="text" name="supplier">
+        <select name="supplier">
+            {% for entry in suppliers %}
+                <option value="{{ entry.id }}">{{ entry.name }}</option>
+            {% endfor %}
+        </select>
         <br>
         <input type="submit" value="Add Badge">
     </form>

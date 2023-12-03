@@ -2,7 +2,7 @@ from db import db
 from flask import jsonify
 from sqlalchemy.sql import text
 
-def add_org(student_organization):
+def addOrg(student_organization):
     sql = "INSERT INTO student_organization (name) VALUES (:name)"
     try:
         db.session.execute(text(sql), {"name":student_organization})
@@ -14,3 +14,8 @@ def add_org(student_organization):
     finally:
         db.session.close()    
 
+def getAllOrgs():
+    sql = "SELECT id, name FROM student_organization"
+    result = db.session.execute(text(sql))
+    orgs = result.fetchall()
+    return orgs
