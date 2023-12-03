@@ -6,7 +6,8 @@ import orgs
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    minimal_badges_ = badges.getAllBadges()
+    return render_template("index.html", minimal_badges=minimal_badges_,count=len(minimal_badges_))
 
 @app.route("/error/<string:e>")
 def error(e):

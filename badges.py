@@ -31,3 +31,10 @@ def getAllDesigners():
     result = db.session.execute(text(sql))
     designers = result.fetchall()
     return designers
+
+
+def getAllBadges():
+    sql = "SELECT id, name, amount FROM badges"
+    result = db.session.execute(text(sql))
+    badges = result.fetchall()
+    return badges

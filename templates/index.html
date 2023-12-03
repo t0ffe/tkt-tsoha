@@ -6,8 +6,8 @@
 Merkkien määrä: {{ count }}
 
 <hr>
-{% for badge in badgess %}
-{{ badge.nimi }}
+{% for badge in minimal_badges %}
+{{ badge.name,  badge.amount }}
 <hr>
 {% endfor %}
 
