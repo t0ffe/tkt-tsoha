@@ -7,7 +7,11 @@ Merkkien määrä: {{ count }}
 
 <hr>
 {% for badge in minimal_badges %}
-{{ badge.name,  badge.amount }}
+    {{ badge.name,  badge.amount }}
+    <form method="POST">
+        <input type="hidden" name="badge_id" value="{{ badge.id }}">
+        <input type="submit" value="Delete">
+    </form>
 <hr>
 {% endfor %}
 

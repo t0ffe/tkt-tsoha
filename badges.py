@@ -15,10 +15,14 @@ def add_badge(student_organization, amount, price, name, designer_id, supplier_i
     finally:
         db.session.close()    
 
-def removeBadge(badge_id, user_id):
-    sql = "UPDATE badges SET visible=0 WHERE id=:id AND creator_id=:user_id"
-    db.session.execute(sql, {"id":badge_id, "user_id":user_id})
+def removeBadge(badge_id):
+    sql = "DELETE FROM badges WHERE id = :id"
+    db.session.execute(sql, {"id":badge_id})
     db.session.commit()
+    return True
+
+def updateBadge():
+    return
 
 def getAllSuppliers():
     sql = "SELECT id, name FROM badge_supplier"

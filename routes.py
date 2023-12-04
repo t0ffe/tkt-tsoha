@@ -4,10 +4,15 @@ import badges
 import users
 import orgs
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    minimal_badges_ = badges.getAllBadges()
-    return render_template("index.html", minimal_badges=minimal_badges_,count=len(minimal_badges_))
+    if request.method == "GET":
+        minimal_badges_ = badges.getAllBadges()
+        return render_template("index.html", minimal_badges=minimal_badges_,count=len(minimal_badges_))
+    if request.method == "POST":
+        badge_id = request.form["badge_id"]
+        if badges.removeBadge(badge_id):
+            return redirect("/")
 
 @app.route("/error/<string:e>")
 def error(e):
@@ -74,10 +79,3 @@ def addStudentOrg():
         orgs.addOrg(student_organization)
 
         return redirect("login")
-
-        
-def removeBadge():
-    return
-
-def updateBadge():
-    return
