@@ -4,7 +4,8 @@
 
 <body>
     <h1>Lisää merkki</h1>
-    <form method="post">
+    <form autocomplete="off" method="post">
+        <input autocomplete="false" name="hidden" type="text" style="display:none;">
         <label for="student_organization">Ainejärjestö:</label>
         <select name="student_organization">
             {% for entry in student_organizations %}
