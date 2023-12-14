@@ -21,8 +21,11 @@ def removeBadge(badge_id):
     db.session.commit()
     return True
 
-def updateBadge():
-    return
+def updateBadge(badge_id, name, amount, price):
+    sql = "UPDATE badges SET name=:name, amount=:amount, price=:price WHERE id = :id"
+    db.session.execute(sql, {"id":badge_id, "name":name, "amount":amount, "price":price})
+    db.session.commit()
+    return True
 
 def getAllSuppliers():
     sql = "SELECT id, name FROM badge_supplier"
@@ -42,3 +45,9 @@ def getAllBadges():
     result = db.session.execute(text(sql))
     badges = result.fetchall()
     return badges
+
+def getOneBadge(badge_id):
+    sql = "SELECT id, name, amount, price FROM badges WHERE id=:badge_id"
+    result = db.session.execute(text(sql), {"badge_id":badge_id})
+    badge = result.fetchone()
+    return badge

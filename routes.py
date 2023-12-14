@@ -1,5 +1,5 @@
 from app import app
-from flask import redirect, render_template, request, jsonify
+from flask import redirect, render_template, request, jsonify, url_for
 import badges
 import users
 import orgs
@@ -9,10 +9,11 @@ def index():
     if request.method == "GET":
         minimal_badges_ = badges.getAllBadges()
         return render_template("index.html", minimal_badges=minimal_badges_,count=len(minimal_badges_))
+    
     if request.method == "POST":
         badge_id = request.form["badge_id"]
-        if badges.removeBadge(badge_id):
-            return redirect("/")
+        print("BADGE ID", badge_id)
+        return redirect(url_for('.editBadge', badge_id=badge_id))
 
 @app.route("/error/<string:e>")
 def error(e):
@@ -68,6 +69,26 @@ def addBadge():
         badges.add_badge(student_organization, amount, price, name, designer, supplier)
 
         return redirect("add_badge")
+    
+@app.route('/edit_badge', methods=['GET', 'POST'])
+def editBadge():
+    if request.method == 'GET':
+        print("FIRST LINE")
+        badge_id = request.args["badge_id"]
+        print(badge_id)
+        badge = badges.getOneBadge(badge_id)
+        print(badge)
+        return render_template('edit_badge.html', id=badge[0], name=badge[1], amount=badge[2], price=badge[3])
+    
+    if request.method == 'POST':
+        amount = request.form["amount"]
+        price = request.form["price"]
+        name = request.form["name"]
+        id = request.form["badge_id"]
+        
+        badges.updateBadge(id, name, amount, price)
+
+        return redirect("/")
 
 @app.route('/add_student_org', methods=['GET', 'POST'])
 def addStudentOrg():

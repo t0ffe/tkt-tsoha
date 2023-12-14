@@ -1,0 +1,29 @@
+{% include 'inc/header.html' %}
+
+{% if session.username %}
+
+<body>
+    <h1>Muokkaa merkkiä</h1>
+    <form method="POST">
+        <input type="number" name="badge_id" value="{{ id }}" style="display:none;">
+        <label for="amount">Määrä:</label>
+        <input type="number" name="amount" value="{{ amount }}" required>
+        <br>
+        <label for="price">Hinta:</label>
+        <input type="number" step=".01" name="price" value="{{ price }}" required>
+        <br>
+        <label for="name">Nimi:</label>
+        <input type="text" name="name" value="{{ name }}" required>
+        <br>
+        <input type="submit" value="Edit Badge">
+    </form>
+    <form method="POST">
+        <input type="hidden" name="badge_id" value="{{ id }}">
+        <input type="submit" value="Delete">
+    </form>
+
+
+{% else %}
+<h1>ET OLE KIRJAUTUNUT SISÄÄN</h1>
+{% endif %}
+{% include 'inc/footer.html' %}
