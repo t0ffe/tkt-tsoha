@@ -90,13 +90,22 @@ def editBadge():
 
         return redirect("/")
 
-@app.route('/add_student_org', methods=['GET', 'POST'])
-def addStudentOrg():
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
     if request.method == 'GET':
-        return render_template('add_student_org.html')
+        return render_template('settings.html')
     
     if request.method == 'POST':
-        student_organization = request.form["student_organization"]
-        orgs.addOrg(student_organization)
+        if "student_organization" in request.form:
+            student_organization = request.form["student_organization"]
+            orgs.addOrg(student_organization)
+    
+        if "designer" in request.form:
+            designer = request.form["designer"]
+            badges.addDesigner(designer)
+    
+        if "supplier" in request.form:
+            supplier = request.form["supplier"]
+            badges.addSupplier(supplier)
 
-        return redirect("login")
+        return redirect("add_badge")

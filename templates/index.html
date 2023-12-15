@@ -3,11 +3,11 @@
 
 {% if session.username %}
 
-Merkkien määrä: {{ count }}
+Eri merkkejä: {{ count }} 
 
 <hr>
 {% for badge in minimal_badges %}
-    {{ badge.name,  badge.amount , badge.id}}
+    {{ badge.name,  badge.amount , badge.price }}
     <form method="POST">
         <input type="hidden" name="badge_id" value="{{ badge.id }}">
         <input type="submit" value="Muokkaa">

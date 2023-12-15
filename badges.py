@@ -41,7 +41,7 @@ def getAllDesigners():
 
 
 def getAllBadges():
-    sql = "SELECT id, name, amount FROM badges"
+    sql = "SELECT id, name, amount, price FROM badges"
     result = db.session.execute(text(sql))
     badges = result.fetchall()
     return badges
@@ -51,3 +51,27 @@ def getOneBadge(badge_id):
     result = db.session.execute(text(sql), {"badge_id":badge_id})
     badge = result.fetchone()
     return badge
+
+def addDesigner(designer):
+    sql = "INSERT INTO badge_designers (name) VALUES (:name)"
+    try:
+        db.session.execute(text(sql), {"name":designer})
+        db.session.commit()
+        return jsonify({'message': 'designer added successfully'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+    finally:
+        db.session.close()
+
+def addSupplier(supplier):
+    sql = "INSERT INTO badge_supplier (name) VALUES (:name)"
+    try:
+        db.session.execute(text(sql), {"name":supplier})
+        db.session.commit()
+        return jsonify({'message': 'supplier added successfully'})
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+    finally:
+        db.session.close()
