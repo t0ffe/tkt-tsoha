@@ -26,11 +26,15 @@ def logout():
     del session["username"]
     return redirect("/")
 
-def register(name, password, role):
-    hash_value = generate_password_hash(password)
+def register(name, password1, password2, role):
+
+    if password1 != password2:
+        return False
+
+    hash_value = generate_password_hash(password1)
 
     sql = "INSERT INTO users (name, password, role) VALUES (:name, :password, :role)"
     db.session.execute(text(sql), {"name":name, "password":hash_value, "role":role})
     db.session.commit()
 
-    return login(name, password)
+    return login(name, password1)
