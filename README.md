@@ -36,8 +36,8 @@ git clone https://github.com/t0ffe/tkt-tsoha.git
 ```bash
 echo -e "DATABASE_URL=postgresql+psycopg2://\nSECRET_KEY=$(python3 -c 'import secrets; print(secrets.token_hex(16))')" > .env
 ```
-se luo `.env` tiedoston ja asetta sinne ympäristömuuttuja `DATABASE_URL` ja `SECRET_KEY`. 
-###### Jos tietokanta yhteys ei toimi saatat joutua muokkaamaan `DATABASE_URL`:in arvoa. Voit kokeilla `postgresql:///user` 
+se luo `.env` tiedoston ja asettaa sinne ympäristömuuttujat `DATABASE_URL` ja `SECRET_KEY`. 
+###### Jos tietokantayhteys ei toimi saatat joutua muokkaamaan `DATABASE_URL`:in arvoa. Voit kokeilla `postgresql:///user` 
 
 3. Aktivoi virtuaaliympäristö komennnoilla:
 
@@ -70,4 +70,4 @@ Aloita sovellus komennolla:
 flask run
 ```
 
-Sovellus on käytettävissä oletusarvoisesti selaimella osositteessa [http://127.0.0.1:5000](http://127.0.0.1:5000)
+Sovellus on käytettävissä oletusarvoisesti selaimella osoitteessa [http://127.0.0.1:5000](http://127.0.0.1:5000)
