@@ -44,7 +44,6 @@ def register():
         return render_template("register.html")
     
     if request.method == "POST":
-        #TODO implement registering
         if users.register(request.form["username"], request.form["password1"], request.form["password2"], request.form["role"]):
             return redirect("/login")
         return redirect("/error/<Salasanasi eivät täsmää>")
