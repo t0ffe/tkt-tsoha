@@ -75,3 +75,9 @@ def addSupplier(supplier):
         return jsonify({'error': str(e)}), 500
     finally:
         db.session.close()
+
+def getBadgeCount():
+    sql = "SELECT COUNT(*) FROM badges"
+    result = db.session.execute(text(sql))
+    count = result.fetchone()
+    return count[0]

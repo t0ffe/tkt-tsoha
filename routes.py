@@ -8,7 +8,8 @@ import orgs
 def index():
     if request.method == "GET":
         minimal_badges_ = badges.getAllBadges()
-        return render_template("index.html", minimal_badges=minimal_badges_,count=len(minimal_badges_))
+        count = badges.getBadgeCount()
+        return render_template("index.html", minimal_badges=minimal_badges_,count=count)
     
     if request.method == "POST":
         badge_id = request.form["badge_id"]
