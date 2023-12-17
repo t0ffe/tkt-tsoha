@@ -77,10 +77,13 @@ def editBadge():
         return render_template('edit_badge.html', id=badge[0], name=badge[1], amount=badge[2], price=badge[3])
     
     if request.method == 'POST':
+        id = request.form["badge_id"]
+        if 'name' not in request.form:
+            badges.deleteBadge(id)
+            return redirect("/")
+        name = request.form["name"]
         amount = request.form["amount"]
         price = request.form["price"]
-        name = request.form["name"]
-        id = request.form["badge_id"]
         
         badges.updateBadge(id, name, amount, price)
 

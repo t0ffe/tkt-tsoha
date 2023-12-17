@@ -81,3 +81,9 @@ def getBadgeCount():
     result = db.session.execute(text(sql))
     count = result.fetchone()
     return count[0]
+
+def deleteBadge(badge_id):
+    sql = "DELETE FROM badges WHERE id=:id"
+    db.session.execute(sql, {"id":badge_id})
+    db.session.commit()
+    return True
