@@ -49,4 +49,5 @@ CREATE TABLE badges (
     FOREIGN KEY (supplier_id) REFERENCES badge_supplier(id)
 );
 
-INSERT INTO roles (role_id, role_name) VALUES ('1' ,'Admin');
+INSERT INTO roles (role_id, role_name) VALUES ('1' ,'Myyjä');
+INSERT INTO roles (role_id, role_name) VALUES ('2' ,'Asiakas');
