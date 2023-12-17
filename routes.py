@@ -93,15 +93,15 @@ def settings():
         return render_template('settings.html')
     
     if request.method == 'POST':
-        if "student_organization" in request.form:
+        if not (request.form["student_organization"] == ""):
             student_organization = request.form["student_organization"]
             orgs.addOrg(student_organization)
     
-        if "designer" in request.form:
+        if not (request.form["designer"] == ""):
             designer = request.form["designer"]
             badges.addDesigner(designer)
     
-        if "supplier" in request.form:
+        if not (request.form["supplier"] == ""):
             supplier = request.form["supplier"]
             badges.addSupplier(supplier)
 
